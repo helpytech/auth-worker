@@ -17,7 +17,7 @@ import { registerHandler } from "./handlers/register-hander";
 export default class extends WorkerEntrypoint {
 
 	async fetch(): Promise<Response> {
-		return new Response('Hello World 2!');
+		return new Response('Hello World 3!');
 	}
 
 	async sendSignUpConfirmationEmail({ email }: { email: string }) {
