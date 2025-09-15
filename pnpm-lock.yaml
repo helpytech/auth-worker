@@ -7,16 +7,20 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@supabase/supabase-js':
+        specifier: ^2.57.4
+        version: 2.57.4
     devDependencies:
       '@cloudflare/vitest-pool-workers':
         specifier: ^0.8.19
-        version: 0.8.71(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4)
+        version: 0.8.71(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4(@types/node@24.4.0))
       typescript:
         specifier: ^5.5.2
         version: 5.9.2
       vitest:
         specifier: ~3.2.0
-        version: 3.2.4
+        version: 3.2.4(@types/node@24.4.0)
       wrangler:
         specifier: ^4.37.0
         version: 4.37.0
@@ -622,6 +626,28 @@ packages:
   '@speed-highlight/core@1.2.7':
     resolution: {integrity: sha512-0dxmVj4gxg3Jg879kvFS/msl4s9F3T9UXC1InxgOf7t5NvcPD97u/WTA5vL/IxWHMn7qSxBozqrnnE2wvl1m8g==}
 
+  '@supabase/auth-js@2.71.1':
+    resolution: {integrity: sha512-mMIQHBRc+SKpZFRB2qtupuzulaUhFYupNyxqDj5Jp/LyPvcWvjaJzZzObv6URtL/O6lPxkanASnotGtNpS3H2Q==}
+
+  '@supabase/functions-js@2.4.6':
+    resolution: {integrity: sha512-bhjZ7rmxAibjgmzTmQBxJU6ZIBCCJTc3Uwgvdi4FewueUTAGO5hxZT1Sj6tiD+0dSXf9XI87BDdJrg12z8Uaew==}
+
+  '@supabase/node-fetch@2.6.15':
+    resolution: {integrity: sha512-1ibVeYUacxWYi9i0cf5efil6adJ9WRyZBLivgjs+AUpewx1F3xPi7gLgaASI2SmIQxPoCEjAsLAzKPgMJVgOUQ==}
+    engines: {node: 4.x || >=6.0.0}
+
+  '@supabase/postgrest-js@1.21.4':
+    resolution: {integrity: sha512-TxZCIjxk6/dP9abAi89VQbWWMBbybpGWyvmIzTd79OeravM13OjR/YEYeyUOPcM1C3QyvXkvPZhUfItvmhY1IQ==}
+
+  '@supabase/realtime-js@2.15.5':
+    resolution: {integrity: sha512-/Rs5Vqu9jejRD8ZeuaWXebdkH+J7V6VySbCZ/zQM93Ta5y3mAmocjioa/nzlB6qvFmyylUgKVS1KpE212t30OA==}
+
+  '@supabase/storage-js@2.12.1':
+    resolution: {integrity: sha512-QWg3HV6Db2J81VQx0PqLq0JDBn4Q8B1FYn1kYcbla8+d5WDmTdwwMr+EJAxNOSs9W4mhKMv+EYCpCrTFlTj4VQ==}
+
+  '@supabase/supabase-js@2.57.4':
+    resolution: {integrity: sha512-LcbTzFhHYdwfQ7TRPfol0z04rLEyHabpGYANME6wkQ/kLtKNmI+Vy+WEM8HxeOZAtByUFxoUTTLwhXmrh+CcVw==}
+
   '@types/chai@5.2.2':
     resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
 
@@ -630,6 +656,15 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
+
+  '@types/node@24.4.0':
+    resolution: {integrity: sha512-gUuVEAK4/u6F9wRLznPUU4WGUacSEBDPoC2TrBkw3GAnOLHBL45QdfHOXp1kJ4ypBGLxTOB+t7NJLpKoC3gznQ==}
+
+  '@types/phoenix@1.6.6':
+    resolution: {integrity: sha512-PIzZZlEppgrpoT2QgbnDU+MMzuR6BbCjllj0bM70lWoejMeNJAxCchxnv7J3XFkI8MpygtRpzXrIlmWUBclP5A==}
+
+  '@types/ws@8.18.1':
+    resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
   '@vitest/expect@3.2.4':
     resolution: {integrity: sha512-Io0yyORnB6sikFlt8QW5K7slY4OjqNX9jmJQ02QDda8lyM6B5oNgVWoSoKPac8/kgnCUzuHQKrSLtu/uOqqrig==}
@@ -908,6 +943,9 @@ packages:
     resolution: {integrity: sha512-t2T/WLB2WRgZ9EpE4jgPJ9w+i66UZfDc8wHh0xrwiRNN+UwH98GIJkTeZqX9rg0i0ptwzqW+uYeIF0T4F8LR7A==}
     engines: {node: '>=14.0.0'}
 
+  tr46@0.0.3:
+    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
+
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -918,6 +956,9 @@ packages:
 
   ufo@1.6.1:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
+
+  undici-types@7.11.0:
+    resolution: {integrity: sha512-kt1ZriHTi7MU+Z/r9DOdAI3ONdaR3M3csEaRc6ewa4f4dTvX4cQCbJ4NkEn0ohE4hHtq85+PhPSTY+pO/1PwgA==}
 
   undici@7.14.0:
     resolution: {integrity: sha512-Vqs8HTzjpQXZeXdpsfChQTlafcMQaaIwnGwLam1wudSSjlJeQ3bw1j+TLPePgrCnCpUXx7Ba5Pdpf5OBih62NQ==}
@@ -1003,6 +1044,12 @@ packages:
       jsdom:
         optional: true
 
+  webidl-conversions@3.0.1:
+    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+
+  whatwg-url@5.0.0:
+    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
+
   why-is-node-running@2.3.0:
     resolution: {integrity: sha512-hUrmaWBdVDcxvYqnyh09zunKzROWjbZTiNy8dBEjkS7ehEDQibXJ7XvlmtbwuTclUiIyN+CyXQD4Vmko8fNm8w==}
     engines: {node: '>=8'}
@@ -1045,6 +1092,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.18.3:
+    resolution: {integrity: sha512-PEIGCY5tSlUt50cqyMXfCzX+oOPqN0vuGqWzbcJ2xvnkzkq46oOpz7dQaTDBdfICb4N14+GARUDw2XV2N4tvzg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   youch-core@0.3.3:
     resolution: {integrity: sha512-ho7XuGjLaJ2hWHoK8yFnsUGy2Y5uDpqSTq1FkHLK4/oqKtyUU1AFbOOxY4IpC9f0fTLjwYbslUz0Po5BpD1wrA==}
 
@@ -1069,7 +1128,7 @@ snapshots:
     optionalDependencies:
       workerd: 1.20250906.0
 
-  '@cloudflare/vitest-pool-workers@0.8.71(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4)':
+  '@cloudflare/vitest-pool-workers@0.8.71(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4(@types/node@24.4.0))':
     dependencies:
       '@vitest/runner': 3.2.4
       '@vitest/snapshot': 3.2.4
@@ -1078,7 +1137,7 @@ snapshots:
       devalue: 5.3.2
       miniflare: 4.20250906.0
       semver: 7.7.2
-      vitest: 3.2.4
+      vitest: 3.2.4(@types/node@24.4.0)
       wrangler: 4.35.0
       zod: 3.25.76
     transitivePeerDependencies:
@@ -1426,6 +1485,48 @@ snapshots:
 
   '@speed-highlight/core@1.2.7': {}
 
+  '@supabase/auth-js@2.71.1':
+    dependencies:
+      '@supabase/node-fetch': 2.6.15
+
+  '@supabase/functions-js@2.4.6':
+    dependencies:
+      '@supabase/node-fetch': 2.6.15
+
+  '@supabase/node-fetch@2.6.15':
+    dependencies:
+      whatwg-url: 5.0.0
+
+  '@supabase/postgrest-js@1.21.4':
+    dependencies:
+      '@supabase/node-fetch': 2.6.15
+
+  '@supabase/realtime-js@2.15.5':
+    dependencies:
+      '@supabase/node-fetch': 2.6.15
+      '@types/phoenix': 1.6.6
+      '@types/ws': 8.18.1
+      ws: 8.18.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@supabase/storage-js@2.12.1':
+    dependencies:
+      '@supabase/node-fetch': 2.6.15
+
+  '@supabase/supabase-js@2.57.4':
+    dependencies:
+      '@supabase/auth-js': 2.71.1
+      '@supabase/functions-js': 2.4.6
+      '@supabase/node-fetch': 2.6.15
+      '@supabase/postgrest-js': 1.21.4
+      '@supabase/realtime-js': 2.15.5
+      '@supabase/storage-js': 2.12.1
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@types/chai@5.2.2':
     dependencies:
       '@types/deep-eql': 4.0.2
@@ -1433,6 +1534,16 @@ snapshots:
   '@types/deep-eql@4.0.2': {}
 
   '@types/estree@1.0.8': {}
+
+  '@types/node@24.4.0':
+    dependencies:
+      undici-types: 7.11.0
+
+  '@types/phoenix@1.6.6': {}
+
+  '@types/ws@8.18.1':
+    dependencies:
+      '@types/node': 24.4.0
 
   '@vitest/expect@3.2.4':
     dependencies:
@@ -1442,13 +1553,13 @@ snapshots:
       chai: 5.3.3
       tinyrainbow: 2.0.0
 
-  '@vitest/mocker@3.2.4(vite@7.1.5)':
+  '@vitest/mocker@3.2.4(vite@7.1.5(@types/node@24.4.0))':
     dependencies:
       '@vitest/spy': 3.2.4
       estree-walker: 3.0.3
       magic-string: 0.30.19
     optionalDependencies:
-      vite: 7.1.5
+      vite: 7.1.5(@types/node@24.4.0)
 
   '@vitest/pretty-format@3.2.4':
     dependencies:
@@ -1772,12 +1883,16 @@ snapshots:
 
   tinyspy@4.0.3: {}
 
+  tr46@0.0.3: {}
+
   tslib@2.8.1:
     optional: true
 
   typescript@5.9.2: {}
 
   ufo@1.6.1: {}
+
+  undici-types@7.11.0: {}
 
   undici@7.14.0: {}
 
@@ -1791,13 +1906,13 @@ snapshots:
       pathe: 2.0.3
       ufo: 1.6.1
 
-  vite-node@3.2.4:
+  vite-node@3.2.4(@types/node@24.4.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 7.1.5
+      vite: 7.1.5(@types/node@24.4.0)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -1812,7 +1927,7 @@ snapshots:
       - tsx
       - yaml
 
-  vite@7.1.5:
+  vite@7.1.5(@types/node@24.4.0):
     dependencies:
       esbuild: 0.25.9
       fdir: 6.5.0(picomatch@4.0.3)
@@ -1821,13 +1936,14 @@ snapshots:
       rollup: 4.50.1
       tinyglobby: 0.2.15
     optionalDependencies:
+      '@types/node': 24.4.0
       fsevents: 2.3.3
 
-  vitest@3.2.4:
+  vitest@3.2.4(@types/node@24.4.0):
     dependencies:
       '@types/chai': 5.2.2
       '@vitest/expect': 3.2.4
-      '@vitest/mocker': 3.2.4(vite@7.1.5)
+      '@vitest/mocker': 3.2.4(vite@7.1.5(@types/node@24.4.0))
       '@vitest/pretty-format': 3.2.4
       '@vitest/runner': 3.2.4
       '@vitest/snapshot': 3.2.4
@@ -1845,9 +1961,11 @@ snapshots:
       tinyglobby: 0.2.15
       tinypool: 1.1.1
       tinyrainbow: 2.0.0
-      vite: 7.1.5
-      vite-node: 3.2.4
+      vite: 7.1.5(@types/node@24.4.0)
+      vite-node: 3.2.4(@types/node@24.4.0)
       why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 24.4.0
     transitivePeerDependencies:
       - jiti
       - less
@@ -1861,6 +1979,13 @@ snapshots:
       - terser
       - tsx
       - yaml
+
+  webidl-conversions@3.0.1: {}
+
+  whatwg-url@5.0.0:
+    dependencies:
+      tr46: 0.0.3
+      webidl-conversions: 3.0.1
 
   why-is-node-running@2.3.0:
     dependencies:
@@ -1908,6 +2033,8 @@ snapshots:
       - utf-8-validate
 
   ws@8.18.0: {}
+
+  ws@8.18.3: {}
 
   youch-core@0.3.3:
     dependencies:

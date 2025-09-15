@@ -12,16 +12,18 @@
  */
 
 import { WorkerEntrypoint } from "cloudflare:workers";
+import { getSupabaseClient } from "./supabase/supabase-client";
 
 export default class extends WorkerEntrypoint {
+
 	async fetch(): Promise<Response> {
+		const supabase = await getSupabaseClient()
 		return new Response('Hello World!');
 	}
 
 	async sendSignUpConfirmationEmail({ email }: { email: string }) {
 		console.log(email)
-		console.log(this.env)
-		console.log(this.ctx)
+
 		return {
 			ok: true
 		}
