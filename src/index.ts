@@ -12,6 +12,7 @@
  */
 
 import { WorkerEntrypoint } from "cloudflare:workers";
+import { registerHandler } from "./handlers/register-hander";
 
 export default class extends WorkerEntrypoint {
 
@@ -20,8 +21,14 @@ export default class extends WorkerEntrypoint {
 	}
 
 	async sendSignUpConfirmationEmail({ email }: { email: string }) {
-		console.log(email)
+		const response = await registerHandler({ email })
 
+		if (!response.ok) {
+			return {
+				ok: false,
+				error: response.error
+			}
+		}
 		return {
 			ok: true
 		}
