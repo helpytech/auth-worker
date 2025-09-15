@@ -15,8 +15,6 @@ export async function registerHandler({ email }: { email: string }) {
 			throw error
 		}
 
-		console.log(linkData)
-
 		const { hashed_token } = linkData.properties;
 
 		const constructedLink = `${env.REDIRECT_URL}/auth/verify?hashed_token=${hashed_token}&type=signup`;
