@@ -17,10 +17,12 @@ import { registerHandler } from "./handlers/register-hander";
 export default class extends WorkerEntrypoint {
 
 	async fetch(): Promise<Response> {
+		console.log("hola!")
 		return new Response('Hello World 4!');
 	}
 
 	async sendSignUpConfirmationEmail({ email }: { email: string }) {
+		console.log(email)
 		const response = await registerHandler({ email })
 
 		if (!response.ok) {
