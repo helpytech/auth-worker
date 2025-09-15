@@ -9,7 +9,26 @@
 	"compatibility_date": "2025-09-13",
 	"observability": {
 		"enabled": true
-	}
+	},
+	"secrets_store_secrets": [
+		{
+			"binding": "supabase_url",
+			"store_id": "b637401ce68f40e5a8e90de43e35fccd",
+			"secret_name": "NEXT_PUBLIC_SUPABASE_URL"
+		},
+		{
+			"binding": "supabase_anon_key",
+			"store_id": "b637401ce68f40e5a8e90de43e35fccd",
+			"secret_name": "NEXT_PUBLIC_SUPABASE_ANON_KEY"
+		},
+
+		{
+			"binding": "supabase_admin_key",
+			"store_id": "b637401ce68f40e5a8e90de43e35fccd",
+			"secret_name": "SUPABASE_ADMIN_KEY"
+		}
+	]
+
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
