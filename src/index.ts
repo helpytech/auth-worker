@@ -11,8 +11,19 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-export default {
-	async fetch(request, env, ctx): Promise<Response> {
+import { WorkerEntrypoint } from "cloudflare:workers";
+
+export default class extends WorkerEntrypoint {
+	async fetch(): Promise<Response> {
 		return new Response('Hello World!');
-	},
-} satisfies ExportedHandler<Env>;
+	}
+
+	async sendSignUpConfirmationEmail({ email }: { email: string }) {
+		console.log(email)
+		console.log(this.env)
+		console.log(this.ctx)
+		return {
+			ok: true
+		}
+	}
+}
