@@ -3,6 +3,7 @@
 // Runtime types generated with workerd@1.20250906.0 2025-09-13
 declare namespace Cloudflare {
 	interface Env {
+		MAILCHANNELS_API_KEY: any;
 		REDIRECT_URL: any;
 		supabase_admin_key: any;
 		supabase_url: any;
