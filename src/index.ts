@@ -22,8 +22,8 @@ export default class extends WorkerEntrypoint {
 
 		const response = await sendSingleEmail({
 			to: "wildchamo@gmail.com",
-			subject: "Test email",
-			body: "This is a test email",
+			subject: "Valida tu cuenta para acceder a Helpy",
+			body: "Valida tu cuenta en la siguiente URL",
 		})
 
 		console.log(response)
