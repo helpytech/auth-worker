@@ -13,12 +13,21 @@
 
 import { WorkerEntrypoint } from "cloudflare:workers";
 import { registerHandler } from "./handlers/register-hander";
+import { sendSingleEmail } from "./email/send-single-email";
 
 export default class extends WorkerEntrypoint {
 
 	async fetch(): Promise<Response> {
 		console.log("hola!")
-		return new Response('Hello World 4!');
+
+		const response = await sendSingleEmail({
+			to: "wildchamo@gmail.com",
+			subject: "Test email",
+			body: "This is a test email",
+		})
+
+		console.log(response)
+		return new Response('Hello World 5!');
 	}
 
 	async sendSignUpConfirmationEmail({ email }: { email: string }) {

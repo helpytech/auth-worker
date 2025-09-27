@@ -19,22 +19,26 @@ export async function sendSingleEmail({
 	body,
 
 }: EmailOptions): Promise<{ ok: boolean; error?: string }> {
+
+	console.log(to, subject, body)
 	try {
 		const url = "https://api.mailchannels.net/tx/v1/send";
 
 		const payload = {
 			from: {
-				email: "helpy@helpycare.com.co",
+				email: "hola@helpycare.com.co",
 				name: "Helpy",
 			},
+			subject: subject,
+
 			personalizations: [
 				{
 					to: [
 						{
 							email: to,
+							name: "Jose X"
 						},
 					],
-					subject: subject,
 				},
 			],
 			content: [
@@ -54,6 +58,8 @@ export async function sendSingleEmail({
 			},
 			body: JSON.stringify(payload),
 		});
+
+		console.log(response)
 
 		if (!response.ok) {
 			const errorText = await response.text();
