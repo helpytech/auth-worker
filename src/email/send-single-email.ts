@@ -24,13 +24,13 @@ export async function sendSingleEmail({
 	try {
 		const url = "https://api.mailchannels.net/tx/v1/send";
 
+		// Improved payload structure for better deliverability
 		const payload = {
 			from: {
 				email: "hola@helpycare.com.co",
 				name: "Helpy",
 			},
 			subject: subject,
-
 			personalizations: [
 				{
 					to: [
@@ -47,6 +47,11 @@ export async function sendSingleEmail({
 					value: body,
 				},
 			],
+			// Add these settings for better deliverability
+			headers: {
+				"List-Unsubscribe": `<mailto:unsubscribe@helpycare.com.co?subject=unsubscribe>`,
+				"X-Entity-Ref-ID": new Date().getTime().toString() // Unique ID for each email
+			}
 		};
 
 		const response = await fetch(url, {
