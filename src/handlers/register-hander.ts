@@ -19,11 +19,10 @@ export async function registerHandler({ email }: { email: string }) {
 
 		const constructedLink = `${env.REDIRECT_URL}/auth/verify?hashed_token=${hashed_token}&type=signup`;
 
-
-		//send link throu email
-
 		console.log(constructedLink)
+
 		return {
+			link: constructedLink,
 			ok: true
 		}
 

@@ -21,7 +21,7 @@ export default class extends WorkerEntrypoint {
 		console.log("hola!")
 
 		const response = await sendSingleEmail({
-			to: "wildchamo@gmail.com",
+			to: "rojala@gmail.com",
 			subject: "Valida tu cuenta para acceder a Helpy",
 			body: "<p>Valida tu cuenta en la siguiente URL</p>",
 		})
@@ -35,13 +35,18 @@ export default class extends WorkerEntrypoint {
 		const response = await registerHandler({ email })
 
 		if (!response.ok) {
+
+
 			return {
 				ok: false,
 				error: response.error
 			}
 		}
-		return {
-			ok: true
+		const responsePayload = {
+			ok: true,
+			data: response.link
 		}
+		console.log(responsePayload)
+		return responsePayload
 	}
 }
