@@ -34,9 +34,7 @@ export default class extends WorkerEntrypoint {
 		}
 		const responsePayload = {
 			ok: true,
-			data: response.link
 		}
-		console.log(responsePayload)
 		return responsePayload
 	}
 }
