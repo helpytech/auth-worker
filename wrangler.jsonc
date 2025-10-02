@@ -20,6 +20,11 @@
 			"binding": "supabase_admin_key",
 			"store_id": "b637401ce68f40e5a8e90de43e35fccd",
 			"secret_name": "SUPABASE_ADMIN_KEY"
+		},
+		{
+			"binding": "resend_api_key",
+			"store_id": "b637401ce68f40e5a8e90de43e35fccd",
+			"secret_name": "RESEND_API_KEY"
 		}
 	]
 
