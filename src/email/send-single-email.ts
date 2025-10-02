@@ -20,7 +20,9 @@ export async function sendSingleEmail({
 
 	console.log(to, subject, body)
 	try {
-		const resend = new Resend(env.RESEND_API_KEY);
+		const resendApiKey = await env.resend_api_key.get();
+
+		const resend = new Resend(resendApiKey);
 		const response = await resend.emails.send({
 			from: "hola@helpycare.com.co",
 			to,
