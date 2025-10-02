@@ -28,18 +28,26 @@ export async function sendSingleEmail({
 			html: body,
 		});
 
-		console.log(response)
+		console.log(response);
 
+		// Resend returns { data: { id: string }, error: null } on success
+		// or { data: null, error: {...} } on failure
+		if (response.error) {
+			return {
+				ok: false,
+				error: response.error.message || "Failed to send email"
+			};
+		}
 
 		return {
 			ok: true
-		}
+		};
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 
 		return {
 			ok: false,
 			error: typeof error === "string" ? error : "Unknown error"
-		}
+		};
 	}
 }

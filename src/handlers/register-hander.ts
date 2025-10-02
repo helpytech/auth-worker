@@ -1,3 +1,4 @@
+import { sendSingleEmail } from "../email/send-single-email";
 import { getSupabaseClient } from "../supabase/supabase-client"
 import { env } from "cloudflare:workers";
 
@@ -21,6 +22,16 @@ export async function registerHandler({ email }: { email: string }) {
 
 		console.log(constructedLink)
 
+
+		const emailResponse = await sendSingleEmail({
+			to: email,
+			subject: "Valida tu cuenta para acceder a Helpy",
+			body: `<p>Valida tu cuenta en la siguiente URL</p>`,
+		})
+		if (!emailResponse.ok) {
+			throw new Error(emailResponse.error)
+		}
+
 		return {
 			link: constructedLink,
 			ok: true
@@ -30,7 +41,7 @@ export async function registerHandler({ email }: { email: string }) {
 		console.error(error)
 		return {
 			ok: false,
-			error: error
+			error: typeof error === "string" ? error : "Error al enviar el correo"
 		}
 	}
 }

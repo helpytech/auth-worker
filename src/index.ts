@@ -35,8 +35,6 @@ export default class extends WorkerEntrypoint {
 		const response = await registerHandler({ email })
 
 		if (!response.ok) {
-
-
 			return {
 				ok: false,
 				error: response.error
