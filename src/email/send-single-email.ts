@@ -1,3 +1,6 @@
+import { Resend } from "resend";
+
+
 import { env } from "cloudflare:workers";
 
 interface EmailOptions {
@@ -7,12 +10,7 @@ interface EmailOptions {
 
 }
 
-/**
- * Sends a single HTML email using MailChannels API
- *
- * @param options Email options including recipient, subject, and HTML body
- * @returns Promise with the response data or error
- */
+
 export async function sendSingleEmail({
 	to,
 	subject,
@@ -22,63 +20,26 @@ export async function sendSingleEmail({
 
 	console.log(to, subject, body)
 	try {
-		const url = "https://api.mailchannels.net/tx/v1/send";
-
-		// Improved payload structure for better deliverability
-		const payload = {
-			from: {
-				email: "hola@helpycare.com.co",
-				name: "Helpy",
-			},
-			subject: subject,
-			personalizations: [
-				{
-					to: [
-						{
-							email: to,
-							name: "Jose X"
-						},
-					],
-				},
-			],
-			content: [
-				{
-					type: "text/html",
-					value: body,
-				},
-			],
-			// Add these settings for better deliverability
-			headers: {
-				"List-Unsubscribe": `<mailto:unsubscribe@helpycare.com.co?subject=unsubscribe>`,
-				"X-Entity-Ref-ID": new Date().getTime().toString() // Unique ID for each email
-			}
-		};
-
-		const response = await fetch(url, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				"Accept": "application/json",
-				"X-Api-Key": env.MAILCHANNELS_API_KEY,
-			},
-			body: JSON.stringify(payload),
+		const resend = new Resend(env.RESEND_API_KEY);
+		const response = await resend.emails.send({
+			from: "hola@helpycare.com.co",
+			to,
+			subject,
+			html: body,
 		});
 
 		console.log(response)
 
-		if (!response.ok) {
-			const errorText = await response.text();
-			return {
-				ok: false,
-				error: `MailChannels API error: ${response.status} - ${errorText}`
-			};
-		}
 
-		return { ok: true };
+		return {
+			ok: true
+		}
 	} catch (error) {
+		console.log(error)
+
 		return {
 			ok: false,
-			error: `Failed to send email: ${error instanceof Error ? error.message : String(error)}`
-		};
+			error: typeof error === "string" ? error : "Unknown error"
+		}
 	}
 }
