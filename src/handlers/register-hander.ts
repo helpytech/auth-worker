@@ -1,6 +1,7 @@
 import { sendSingleEmail } from "../email/send-single-email";
 import { getSupabaseClient } from "../supabase/supabase-client"
 import { env } from "cloudflare:workers";
+import { getWelcomeEmailTemplate } from "../email/templates/welcome-email";
 
 
 export async function registerHandler({ email }: { email: string }) {
@@ -17,17 +18,16 @@ export async function registerHandler({ email }: { email: string }) {
 		}
 
 		const { hashed_token } = linkData.properties;
-
 		const constructedLink = `${env.REDIRECT_URL}/auth/verify?hashed_token=${hashed_token}&type=signup`;
 
 		console.log(constructedLink)
 
-
 		const emailResponse = await sendSingleEmail({
 			to: email,
 			subject: "Valida tu cuenta para acceder a Helpy",
-			body: `<p>Valida tu cuenta en la siguiente URL</p>`,
+			body: getWelcomeEmailTemplate(constructedLink),
 		})
+
 		if (!emailResponse.ok) {
 			throw new Error(emailResponse.error)
 		}
@@ -41,7 +41,7 @@ export async function registerHandler({ email }: { email: string }) {
 		console.error(error)
 		return {
 			ok: false,
-			error: typeof error === "string" ? error : "Error al enviar el correo"
+			error: error instanceof Error ? error.message : "Error al enviar el correo"
 		}
 	}
 }
