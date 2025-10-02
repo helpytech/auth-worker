@@ -20,7 +20,6 @@ export async function registerHandler({ email }: { email: string }) {
 		const { hashed_token } = linkData.properties;
 		const constructedLink = `${env.REDIRECT_URL}/auth/verify?hashed_token=${hashed_token}&type=signup`;
 
-		console.log(constructedLink)
 
 		const emailResponse = await sendSingleEmail({
 			to: email,
