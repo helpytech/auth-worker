@@ -7,7 +7,8 @@
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
 		"test": "vitest",
-		"cf-typegen": "wrangler types"
+		"cf-typegen": "wrangler types",
+		"gen-types": "npx supabase gen types typescript --schema public > src/types/database.types.ts --project-id pongsdxbobwcrowbvzcn"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.8.19",
