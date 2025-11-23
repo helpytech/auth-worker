@@ -25,25 +25,30 @@ export function getWelcomeAdminEmailTemplate(verificationLink: string, email: st
 								Hola,
 							</p>
 							<p style="margin: 0 0 30px; color: #333333; font-size: 16px; line-height: 1.6;">
-								Estamos emocionados de tenerte con nosotros con el rol de administrador. Para completar tu registro y acceder a tu cuenta, por favor valida tu correo electrónico haciendo clic en el botón de abajo.
+								Estamos emocionados de tenerte con nosotros desepeñando el rol de administrador. Para completar tu registro y acceder a tu cuenta, por favor valida tu correo electrónico haciendo clic en el botón de abajo. Una vez validado, podrás iniciar sesión en el panel de administración con el correo y contraseña que se te asignaron.
 							</p>
-							 <p style="margin: 0 0 20px; color: #333333; font-size: 16px; line-height: 1.6;">
-                                Estas son tus credenciales asignadas para ingresar al panel, ¡No las pierdas!:
-                            </p>
-                            <div style="margin: 0 0 30px; padding: 18px 24px; background-color: #f0f5ff; border-radius: 10px; border: 1px solid #d6e4ff; color: #1f3c88; font-size: 15px; line-height: 1.6;">
-                                <strong>Correo:</strong> ${email}<br>
-                                <strong>Contraseña temporal:</strong> ${password}
-                            </div>
+
+							
 							<!-- Button -->
 							<table width="100%" cellpadding="0" cellspacing="0">
 								<tr>
 									<td align="center" style="padding: 20px 0;">
 										<a href="${verificationLink}" style="display: inline-block; padding: 16px 40px; background-color: #3C83EF; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 12px rgba(60, 131, 239, 0.3);">
-											Validar mi cuenta
+										Validar mi cuenta
 										</a>
 									</td>
 								</tr>
 							</table>
+
+
+							<!-- Credentials -->
+							<p style="margin: 0 0 20px; color: #333333; font-size: 16px; line-height: 1.6;">
+							   Estas son tus credenciales asignadas para ingresar al panel, ¡No las pierdas!:
+						   </p>
+						   <div style="margin: 0 0 30px; padding: 18px 24px; background-color: #f0f5ff; border-radius: 10px; border: 1px solid #d6e4ff; color: #1f3c88; font-size: 15px; line-height: 1.6;">
+							   <strong>Correo:</strong> ${email}<br>
+							   <strong>Contraseña temporal:</strong> ${password}
+						   </div>
 
 							<p style="margin: 30px 0 0; color: #666666; font-size: 14px; line-height: 1.6;">
 								Si no creaste esta cuenta, puedes ignorar este correo de forma segura.
