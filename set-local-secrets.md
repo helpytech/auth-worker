@@ -5,3 +5,6 @@ npx wrangler secrets-store secret create b637401ce68f40e5a8e90de43e35fccd --name
 
 
 npx wrangler secrets-store secret create b637401ce68f40e5a8e90de43e35fccd --name SUPABASE_ADMIN_KEY --scopes workers
+
+
+npx wrangler secrets-store secret create b637401ce68f40e5a8e90de43e35fccd --name RESEND-API-KEY --scopes workers
