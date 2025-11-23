@@ -13,6 +13,7 @@
 
 import { WorkerEntrypoint } from "cloudflare:workers";
 import { registerHandler } from "./handlers/register-hander";
+import { confirmAdminHandler } from "./handlers/confirm-admin-handler";
 
 export default class extends WorkerEntrypoint {
 
@@ -32,9 +33,24 @@ export default class extends WorkerEntrypoint {
 				error: response.error
 			}
 		}
-		const responsePayload = {
+		return {
 			ok: true,
 		}
-		return responsePayload
+	}
+
+	async sendSignUpAdminConfirmationEmail({ email, password }: { email: string, password: string }) {
+		console.log(email)
+		const response = await confirmAdminHandler({ email, password })
+
+		if (!response.ok) {
+			return {
+				ok: false,
+				error: response.error
+			}
+		}
+		return {
+			ok: true,
+		}
+
 	}
 }
